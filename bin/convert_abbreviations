@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+from argparse import ArgumentParser
+
+from converters.abbreviations import AbbreviationsConverter
+
+if __name__ == '__main__':
+    arg_parser = ArgumentParser()
+    arg_parser.add_argument('abbreviations_file')
+    arg_parser.add_argument('output_file')
+
+    args = arg_parser.parse_args()
+    converter = AbbreviationsConverter(args.abbreviations_file)
+    converter.to_rdf_file(args.output_file)
